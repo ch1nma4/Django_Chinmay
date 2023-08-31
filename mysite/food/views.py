@@ -8,4 +8,4 @@ def index(request):
     return HttpResponse('<h1 style = "color : blue"> This is an index page </h1>')
 
 def detail(request):
-    return HttpResponse('<h1 style : "color : blue">This is a detail view</h1>')
+    return HttpResponse('<h1 style : "color :blue">This is a detail view</h1>')

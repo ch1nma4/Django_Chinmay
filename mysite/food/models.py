@@ -7,3 +7,7 @@ class Item(models.Model):
     Item_name = models.CharField(max_length=50)
     Item_desc = models.CharField(max_length=200)
     Item_price = models.IntegerField()
+
+    def __str__(self):
+        return self.Item_name 
+

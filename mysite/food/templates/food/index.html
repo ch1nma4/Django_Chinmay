@@ -10,18 +10,30 @@
 <body>
     {% block body %}
 
-    <h1>This is an index page....</h1>
-
     {% for item in itemlist %}
-    <img src="{{ item.Item_image }}" alt="">
 
-        <ul>
-            <li>
-                <a href="{% url 'food:detail' item.id %}">
-                    {{item.id}} -- {{item.Item_name}}
-                </a>
-            </li>
-        </ul>
+    <div class="row">
+        <div class="col-md-3 offset-md-2">
+            <img 
+            src="{{ item.Item_image }}"
+            class="card"
+            height="135px"
+            width="230px"
+            >
+        </div>
+
+        <div class="col-md-4">
+            <h3>{{item.Item_name}}</h3>
+            <h3>{{item.Item_desc}}</h3>
+            <h3>{{item.Item_price}}</h3>
+            
+        </div>
+
+        <div class="col-md-3">
+            
+        </div>
+    </div>
+
     {% endfor %}
 
     {% endblock %}

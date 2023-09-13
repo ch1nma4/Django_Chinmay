@@ -11,7 +11,7 @@
     {% block body %}
 
     {% for item in itemlist %}
-    <div class="row mb-5">
+    <div class="row mb-3">
         <div class="col-md-3 offset-md-2">
             <img 
             src="{{ item.Item_image }}"
@@ -22,14 +22,33 @@
         </div>
 
         <div class="col-md-4">
-            <h3>{{item.Item_name}}</h3>
-            <h3>{{item.Item_desc}}</h3>
-            <h3>{{item.Item_price}}</h3>
+            <h3 style="font-size: 1.5rem;">
+                {{item.Item_name}}
+            </h3>
+
+            <h5 style="font-style: italic;
+                        font-size: 1rem;">
+                {{item.Item_desc | truncatewords:6}}
+            </h5>
+
+            <h6>
+                ${{item.Item_price}}
+            </h6>
+
+            <h6 style="font-style: italic;">
+                Added for : 
+            </h6>
+
+            <h6 style="font-style: italic;">
+                Added by Superuser
+            </h6>
             
         </div>
 
         <div class="col-md-3">
-            
+            <a href="{% url 'food:detail' item.id %}" style="width: 100px" class="btn btn-success">
+                Details
+            </a>
         </div>
     </div>
 

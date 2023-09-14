@@ -10,9 +10,66 @@
 </head>
 <body>
 
-    <h1>{{ item.Item_name }}</h1>
-    <h1>{{ item.Item_desc }}</h1>
-    <h1>{{ item.Item_price }}</h1>
+        <div class="row">
+            
+            <div class="col-md-2 offset-md-1">
+                <img src="{{ item.Item_image }}"
+                    height="150px"
+                    width="250px"
+                    class="card"
+                >
+            </div>
+
+            <div class="col-md-4 offset-md-1">
+
+                <h1 style="font-style: italic;
+                ">
+                    {{item.Item_name }}
+                </h1>
+
+                <h2 
+                style="
+                    font-style: italic;
+                    font-size: 1.3rem;
+                    text-align: justify;
+                ">
+                    {{ item.Item_desc }}
+                </h2>
+
+                <h3>
+                    ${{item.Item_price}}
+                </h3>
+                
+            </div>
+
+            <div class="col-md-3 offset-md-1">
+
+                <a 
+                    href="#"
+                    style="width: 80px;"
+                    class="btn btn-warning"
+                >
+                Edit
+                </a>
+
+                <a
+                    href="#"
+                    style="width: 80px;"
+                    class="btn btn-danger"
+                >
+                Delete
+                </a>
+                
+                <a
+                    href="#"
+                    style="width: 80px;"
+                    class="btn btn-success"
+                >
+                Back
+                </a>
+
+            </div>
+        </div>
 
     {% endblock %}
 </body>

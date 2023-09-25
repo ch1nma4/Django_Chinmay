@@ -1,0 +1,18 @@
+{% extends 'food/base.html' %}
+
+{% block body %}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label for="user">Username:</label><br>
+    <input type="text" name="username" id="user"><br>
+
+    <label for="pass">Password:</label><br>
+    <input type="password" name="password" id="pass"><br><br>
+
+    <button type="submit" >Login</button>
+
+</form>
+
+{% endblock %}

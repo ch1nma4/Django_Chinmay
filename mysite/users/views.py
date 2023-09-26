@@ -27,7 +27,6 @@ def register(request):
         'form' : form
     }
     
-    return render(request,'users/register.html', context)
 
 def login_view(request):
 
@@ -39,12 +38,20 @@ def login_view(request):
 
         if user is not None:
             login(request , user)
+            messages.success(
+                request,
+                'Welcome {}, you have been Successfully logged in '.format(request.user.username)
+            )
             return redirect('food:index')
         
     return render (request, 'users/login.html')
 
 
 def logout_view(request):
+    messages.success(
+        request,
+        '{}, you have been Successfully logout'.format(request.user.username)
+    )
     logout(request)
     return redirect('food:index')
 

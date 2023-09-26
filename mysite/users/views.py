@@ -15,10 +15,10 @@ def register(request):
             username = form.cleaned_data.get('username')
             messages.success(
                 request, 
-                'Welcome {}, your account has been successfully created'.format(username)
+                'Welcome {}, your account has been successfully created. Now you may logged in....'.format(username)
             )
             form.save()
-            return redirect('food:index')
+            return redirect('login')
         
     else:
         form = RegisterForm()    
@@ -26,6 +26,8 @@ def register(request):
     context = {
         'form' : form
     }
+
+    return render(request , 'users/register.html' , context)
     
 
 def login_view(request):

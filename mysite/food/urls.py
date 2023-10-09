@@ -13,7 +13,10 @@ urlpatterns = [
     path('home/', views.IndexClassView.as_view(), name = 'index'),
 
     # Function base detail view
-    path('detail/<int:item_id>/', views.detail, name='detail'),
+    # path('detail/<int:item_id>/', views.detail, name='detail'),
+
+    # Class base detail view
+    path('detail/<int:pk>/',views.FoodDetail.as_view() , name='detail'),
 
     # Function base create item view
     path('add/', views.create_item, name='create_item'),

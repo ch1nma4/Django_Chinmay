@@ -19,7 +19,10 @@ urlpatterns = [
     path('detail/<int:pk>/',views.FoodDetail.as_view() , name='detail'),
 
     # Function base create item view
-    path('add/', views.create_item, name='create_item'),
+    # path('add/', views.create_item, name='create_item'),
+
+    #Class base create item view
+    path('add/',views.CreateItem.as_view(), name='create_item'),
 
     # Function base update item view
     path('update/<int:id>/',views.update_item, name='update_item'),

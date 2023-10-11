@@ -10,36 +10,57 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <form method="POST">
-        {% csrf_token %}
 
-        <label>Product Code : </label><br>
-        {{ form.prod_code }}
-        <br><br>
+<br><br>
 
-        <label>For User : </label><br>
-        {{ form.for_user }}
-        <br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="card">
+                <div class="card-header text-white bg-info">
+                    <div class="card-title offset-md-4">
+                        ADD ITEM
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                
+                        <label class="offset-md-1">Product Code : </label><br>
+                        <span class="offset-md-1">{{ form.prod_code }}</span>
+                        <br><br>
+                
+                        <label class="offset-md-1">For User : </label><br>
+                        <span class="offset-md-1">{{ form.for_user }}</span>
+                        <br><br>
+                
+                        <label class="offset-md-1">Item Nmae : </label><br>
+                        <span class="offset-md-1">{{ form.Item_name }}</span>
+                        <br><br>
+                
+                        <label class="offset-md-1">Item Description : </label><br>
+                        <span class="offset-md-1">{{ form.Item_desc }}</span>
+                        <br><br>
+                
+                        <label class="offset-md-1">Item Price : </label><br>
+                        <span class="offset-md-1">{{ form.Item_price }}</span>
+                        <br><br>
+                
+                        <label class="offset-md-1">Item Image : </label><br>
+                        <span class="offset-md-1">{{ form.Item_image }}</span>
+                        <br><br>
+                
+                        <button class="offset-md-5 btn btn-success btn-sm" type="submit">Save</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-        <label>Item Nmae : </label><br>
-        {{ form.Item_name }}
-        <br><br>
+<br><br>
 
-        <label>Item Description : </label><br>
-        {{ form.Item_desc }}
-        <br><br>
-
-        <label>Item Price : </label><br>
-        {{ form.Item_price }} 
-        <br><br>
-
-        <label>Item Image : </label><br>
-        {{ form.Item_image }}
-        <br><br>
-
-        <button type="submit">Save</button>
-    </form>
-    {% endblock %}
 </body>
 </html>
+{% endblock %}

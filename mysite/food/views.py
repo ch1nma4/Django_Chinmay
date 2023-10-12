@@ -12,11 +12,23 @@ from django.urls import reverse_lazy
 # Function base index view
 
 def index(request):
-    itemlist = Item.objects.all()
+    
+    if request.user.is_superuser:
+        itemlist = Item.objects.all()
+
+    elif request.user.is_authenticated and request.user.profile.user_type == 'Rest':
+        itemlist = Item.objects.filter(for_user = request.user.username)
+
+    elif request.user.is_authenticated and request.user.profile.user_type == 'Cust':
+        itemlist = Item.objects.all()
+
+    else:
+        itemlist = Item.objects.all()
 
     context = {
         'itemlist': itemlist,
     }
+
     return render(request , 'food/index.html' , context)
 
 

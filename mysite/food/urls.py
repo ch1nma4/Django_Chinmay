@@ -7,10 +7,10 @@ app_name = 'food'
 urlpatterns = [
 
     # Function base index view
-    # path('home/' , views.index, name='index'),
+    path('home/' , views.index, name='index'),
 
     # Class base index view
-    path('home/', views.IndexClassView.as_view(), name = 'index'),
+    # path('home/', views.IndexClassView.as_view(), name = 'index'),
 
     # Function base detail view
     # path('detail/<int:item_id>/', views.detail, name='detail'),

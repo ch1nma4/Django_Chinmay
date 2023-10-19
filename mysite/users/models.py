@@ -22,11 +22,12 @@ class CusOrders(models.Model):
 
     def __str__(self):
         return str(
-
-            str(self.order_id),
-            str(self.prod_code),
-            str(self.quantity),
-            str(self.user)  
+            (
+                str(self.order_id),
+                str(self.prod_code),
+                str(self.quantity),
+                str(self.user)  
+            )
         )
             
         

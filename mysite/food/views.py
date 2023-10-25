@@ -45,13 +45,24 @@ class IndexClassView(ListView):
 # Function base detail view
 
 def detail(request, item_id):
+
     item = Item.objects.get(pk=item_id)
 
     hist = History.objects.filter(
         prod_ref = item.prod_code
     )
 
-    Obj_CusOrd = CusOrders.objects.all()
+    #restaurant and admin
+    if request.user.profile.user_type == 'Rest' or request.user.profile.user_type == 'Admin':
+        Obj_CusOrd = CusOrders.objects.filter(
+            prod_code = item.prod_code
+        )
+
+    elif request.user.profile.user_type == 'Cust':
+        Obj_CusOrd = CusOrders.objects.filter(
+            prod_code = item.prod_code,
+            user = request.user.username
+        )
 
     context = {
 

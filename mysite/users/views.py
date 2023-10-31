@@ -117,7 +117,7 @@ def update_orders(request , id , upd_order_id):
 
     if form.is_valid():
         form.save()
-        return redirect(+'food:detail', item_id = id)
+        return redirect('food:detail', item_id = id)
 
 
     return render(request , 'users/orders_upd.html' , context)

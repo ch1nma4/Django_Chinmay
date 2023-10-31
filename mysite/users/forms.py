@@ -15,5 +15,5 @@ class RegisterForm(UserCreationForm):
 class CusOrdersUpd(forms.ModelForm):
     class Meta:
         model = CusOrders
-        fields = ['order_id' , 'prod_code' , 'quantity', 'user']
+        fields = [ 'quantity']
         

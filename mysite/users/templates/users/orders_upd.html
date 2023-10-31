@@ -10,7 +10,36 @@
     <title>Document</title>
 </head>
 <body>
-    {{ form }}  
+    <br><br><br><br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="card">
+                <div class="card-header text-white bg-info">
+                    <div class="card-title offset-md-4">
+                        Update Orders
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        <label>Quantity : </label><br>
+                        {{ form.quantity }} <br>
+
+
+                        <br><br><button type="submit" class="bt btn-danger btn-sm offset-md-5">
+                            Save
+                        </button>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
 

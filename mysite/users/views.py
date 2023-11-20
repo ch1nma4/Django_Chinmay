@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate , login , logout
 from django.contrib.auth.decorators import login_required
 from users.models import CusOrders
-from users.forms import CusOrdersUpd
+from users.forms import CusOrdersUpd , CusRatFeedForm
 
 # Create your views here.
 
@@ -112,7 +112,8 @@ def update_orders(request , id , upd_order_id):
     form = CusOrdersUpd(request.POST or None , instance = coo )
 
     context = {
-        'form' : form 
+        'form' : form,
+        'coo' : coo
     }
 
     if form.is_valid():
@@ -122,6 +123,20 @@ def update_orders(request , id , upd_order_id):
 
     return render(request , 'users/orders_upd.html' , context)
 
+def CusRatFeed(request ,it_id,  pc):
 
+    form = CusRatFeedForm(request.POST or None)
+
+    context = {
+        'form' : form
+    }
+
+    if request.method == 'POST':
+        form.instance.prod_code = pc
+        form.instance.username = request.user.username
+        form.save()
+        return redirect('food:detail' , item_id = it_id)
+
+    return render(request , 'users/item-form.html' , context)
 
 

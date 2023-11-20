@@ -11,7 +11,9 @@ urlpatterns = [
 
     # Updating Customer Orders
 
-    path('upd_orders/<int:id>/<int:upd_order_id>/' , views.update_orders , name = 'upd_orders')
+    path('upd_orders/<int:id>/<int:upd_order_id>/' , views.update_orders , name = 'upd_orders'),
 
+    # Customer Ratings and Feedback view
 
+    path('crf/<int:it_id>/<int:pc>/', views.CusRatFeed , name = 'CusRatFeed'),
 ]

@@ -324,7 +324,7 @@
                             
                             {% if obj.username == user.username %}
 
-                                <a  href="#" 
+                                <a  href="{% url 'users:del_crf' item.id obj.id %}" 
                                     class="btn btn-primary btn-sm">
 
                                     Delete

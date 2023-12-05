@@ -17,6 +17,21 @@
             Exortillo
         </a>
 
+        <!-- path of the currrent page -->
+
+        <form action="{% url 'food:navform' %}" method="GET">
+            {% csrf_token %}
+
+            <span><b style="color: white;">Form : </b></span>
+
+            <input type="text" name="navformdata">
+
+            <input type="text" hidden  name="item_name" value="{{ request.path }}">
+
+            <button type="submit">Submit</button>
+
+        </form>
+
         <form action="{% url 'food:index' %}" method="GET">
             {% csrf_token %}
 

@@ -38,11 +38,19 @@ def index(request):
         if item_name != '' and item_name is not None:
             itemlist = Item.objects.filter(Item_name__icontains = item_name )
 
+        paginator = Paginator(itemlist , 3)
+        page = request.GET.get('page')
+        itemlist = paginator.get_page(page)
+
     elif request.user.is_authenticated and request.user.profile.user_type == 'Cust':
         itemlist = Item.objects.all()
         item_name = request.GET.get('item_name')
         if item_name != '' and item_name is not None:
             itemlist = Item.objects.filter(Item_name__icontains = item_name )
+
+        paginator = Paginator(itemlist , 3)
+        page = request.GET.get('page')
+        itemlist = paginator.get_page(page)
 
     else:
         itemlist = Item.objects.all()
@@ -196,3 +204,11 @@ def delete_item(request , id):
         return redirect('food:index')
 
     return render(request , 'food/item-delete.html',context)
+
+def NavForm(request):
+    
+    path = request.GET.get('item_name')
+    nfd = request.GET.get('navformdata')
+    print(nfd)
+
+    return redirect(str(path))

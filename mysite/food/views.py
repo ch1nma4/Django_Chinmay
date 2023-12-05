@@ -18,11 +18,24 @@ def index(request):
     if request.user.is_superuser:
         itemlist = Item.objects.all()
 
+        # for search Functionality
+
+        item_name = request.GET.get('item_name')
+        if item_name != '' and item_name is not None:
+            itemlist = Item.objects.filter(Item_name__icontains = item_name )
+
     elif request.user.is_authenticated and request.user.profile.user_type == 'Rest':
         itemlist = Item.objects.filter(for_user = request.user.username)
 
+        item_name = request.GET.get('item_name')
+        if item_name != '' and item_name is not None:
+            itemlist = Item.objects.filter(Item_name__icontains = item_name )
+
     elif request.user.is_authenticated and request.user.profile.user_type == 'Cust':
         itemlist = Item.objects.all()
+        item_name = request.GET.get('item_name')
+        if item_name != '' and item_name is not None:
+            itemlist = Item.objects.filter(Item_name__icontains = item_name )
 
     else:
         itemlist = Item.objects.all()
